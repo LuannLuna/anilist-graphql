@@ -11,7 +11,7 @@ import SwiftUI
 struct AniListApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            HomeViewFactory.make()
         }
     }
 }

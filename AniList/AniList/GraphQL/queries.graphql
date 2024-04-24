@@ -1,0 +1,47 @@
+fragment Pagination on PageInfo {
+  currentPage
+  total
+  hasNextPage
+}
+
+fragment BaseAnimeInfo on Media {
+  id
+  title {
+    english
+    native
+  }
+  coverImage {
+    extraLarge
+    color
+  }
+  meanScore
+  genres
+  episodes
+  meanScore
+  format
+  popularity
+}
+
+query AllAnnimes($page: Int) {
+  Page(page: $page) {
+    pageInfo {
+      ...Pagination
+    }
+    media{
+      ...BaseAnimeInfo
+    }
+  }
+}
+
+
+
+query FindAnime($search: String, $page: Int) {
+  Page(page: $page) {
+    pageInfo {
+        ...Pagination
+    }
+    media(search: $search) {
+        ...BaseAnimeInfo
+    }
+  }
+}

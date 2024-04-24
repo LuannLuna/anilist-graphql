@@ -8,12 +8,24 @@
 
 /* Begin PBXBuildFile section */
 		A4A332AC2BD6D7B900912273 /* AniListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A332AB2BD6D7B900912273 /* AniListApp.swift */; };
-		A4A332AE2BD6D7B900912273 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A332AD2BD6D7B900912273 /* ContentView.swift */; };
+		A4A332AE2BD6D7B900912273 /* HomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A332AD2BD6D7B900912273 /* HomeView.swift */; };
 		A4A332B02BD6D7BA00912273 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4A332AF2BD6D7BA00912273 /* Assets.xcassets */; };
 		A4A332B32BD6D7BA00912273 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A4A332B22BD6D7BA00912273 /* Preview Assets.xcassets */; };
 		A4A332BD2BD6D7BB00912273 /* AniListTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A332BC2BD6D7BB00912273 /* AniListTests.swift */; };
 		A4A332C72BD6D7BB00912273 /* AniListUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A332C62BD6D7BB00912273 /* AniListUITests.swift */; };
 		A4A332C92BD6D7BB00912273 /* AniListUITestsLaunchTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A332C82BD6D7BB00912273 /* AniListUITestsLaunchTests.swift */; };
+		A4A332F82BD6DF2300912273 /* Apollo in Frameworks */ = {isa = PBXBuildFile; productRef = A4A332F72BD6DF2300912273 /* Apollo */; };
+		A4A332FC2BD6DF2300912273 /* ApolloAPI in Frameworks */ = {isa = PBXBuildFile; productRef = A4A332FB2BD6DF2300912273 /* ApolloAPI */; };
+		A4A333032BD7100900912273 /* schema.json in Resources */ = {isa = PBXBuildFile; fileRef = A4A333022BD7100900912273 /* schema.json */; };
+		A4A333062BD756CE00912273 /* queries.graphql in Sources */ = {isa = PBXBuildFile; fileRef = A4A333052BD756CE00912273 /* queries.graphql */; };
+		A4A3330A2BD75D3600912273 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A333092BD75D3600912273 /* API.swift */; };
+		A4A3330D2BD7E42E00912273 /* APIService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A3330C2BD7E42E00912273 /* APIService.swift */; };
+		A4A333112BD7E5AC00912273 /* HomeViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A333102BD7E5AC00912273 /* HomeViewViewModel.swift */; };
+		A4A333142BD800C000912273 /* AnimeListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A333132BD800C000912273 /* AnimeListRow.swift */; };
+		A4A333172BD80A8800912273 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A333162BD80A8800912273 /* Color+Extensions.swift */; };
+		A4A333192BD8325D00912273 /* HomeViewFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A333182BD8325D00912273 /* HomeViewFactory.swift */; };
+		A4A3331C2BD944C600912273 /* ShortAnimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A3331B2BD944C600912273 /* ShortAnimeViewModel.swift */; };
+		A4A3331E2BD9875600912273 /* URLImage.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A3331D2BD9875600912273 /* URLImage.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,10 +45,23 @@
 		};
 /* End PBXContainerItemProxy section */
 
+/* Begin PBXCopyFilesBuildPhase section */
+		A4A333082BD7584100912273 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
+
 /* Begin PBXFileReference section */
 		A4A332A82BD6D7B900912273 /* AniList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AniList.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4A332AB2BD6D7B900912273 /* AniListApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AniListApp.swift; sourceTree = "<group>"; };
-		A4A332AD2BD6D7B900912273 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		A4A332AD2BD6D7B900912273 /* HomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeView.swift; sourceTree = "<group>"; };
 		A4A332AF2BD6D7BA00912273 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A4A332B22BD6D7BA00912273 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		A4A332B82BD6D7BB00912273 /* AniListTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AniListTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -44,6 +69,16 @@
 		A4A332C22BD6D7BB00912273 /* AniListUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = AniListUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		A4A332C62BD6D7BB00912273 /* AniListUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AniListUITests.swift; sourceTree = "<group>"; };
 		A4A332C82BD6D7BB00912273 /* AniListUITestsLaunchTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AniListUITestsLaunchTests.swift; sourceTree = "<group>"; };
+		A4A333022BD7100900912273 /* schema.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = schema.json; sourceTree = SOURCE_ROOT; };
+		A4A333052BD756CE00912273 /* queries.graphql */ = {isa = PBXFileReference; lastKnownFileType = text; path = queries.graphql; sourceTree = "<group>"; };
+		A4A333092BD75D3600912273 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
+		A4A3330C2BD7E42E00912273 /* APIService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIService.swift; sourceTree = "<group>"; };
+		A4A333102BD7E5AC00912273 /* HomeViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewViewModel.swift; sourceTree = "<group>"; };
+		A4A333132BD800C000912273 /* AnimeListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListRow.swift; sourceTree = "<group>"; };
+		A4A333162BD80A8800912273 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
+		A4A333182BD8325D00912273 /* HomeViewFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewFactory.swift; sourceTree = "<group>"; };
+		A4A3331B2BD944C600912273 /* ShortAnimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortAnimeViewModel.swift; sourceTree = "<group>"; };
+		A4A3331D2BD9875600912273 /* URLImage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = URLImage.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -51,6 +86,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A4A332FC2BD6DF2300912273 /* ApolloAPI in Frameworks */,
+				A4A332F82BD6DF2300912273 /* Apollo in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -94,8 +131,13 @@
 		A4A332AA2BD6D7B900912273 /* AniList */ = {
 			isa = PBXGroup;
 			children = (
+				A4A3331A2BD944A600912273 /* ViewModels */,
+				A4A333152BD80A7E00912273 /* Extensions */,
+				A4A333122BD8009C00912273 /* Components */,
+				A4A3330B2BD7E41C00912273 /* Service */,
+				A4A333012BD70FFE00912273 /* GraphQL */,
 				A4A332AB2BD6D7B900912273 /* AniListApp.swift */,
-				A4A332AD2BD6D7B900912273 /* ContentView.swift */,
+				A4A3330F2BD7E4F600912273 /* Scene */,
 				A4A332AF2BD6D7BA00912273 /* Assets.xcassets */,
 				A4A332B12BD6D7BA00912273 /* Preview Content */,
 			);
@@ -127,6 +169,67 @@
 			path = AniListUITests;
 			sourceTree = "<group>";
 		};
+		A4A333012BD70FFE00912273 /* GraphQL */ = {
+			isa = PBXGroup;
+			children = (
+				A4A333092BD75D3600912273 /* API.swift */,
+				A4A333022BD7100900912273 /* schema.json */,
+				A4A333052BD756CE00912273 /* queries.graphql */,
+			);
+			path = GraphQL;
+			sourceTree = "<group>";
+		};
+		A4A3330B2BD7E41C00912273 /* Service */ = {
+			isa = PBXGroup;
+			children = (
+				A4A3330C2BD7E42E00912273 /* APIService.swift */,
+			);
+			path = Service;
+			sourceTree = "<group>";
+		};
+		A4A3330E2BD7E4EE00912273 /* HomeView */ = {
+			isa = PBXGroup;
+			children = (
+				A4A332AD2BD6D7B900912273 /* HomeView.swift */,
+				A4A333102BD7E5AC00912273 /* HomeViewViewModel.swift */,
+				A4A333182BD8325D00912273 /* HomeViewFactory.swift */,
+			);
+			path = HomeView;
+			sourceTree = "<group>";
+		};
+		A4A3330F2BD7E4F600912273 /* Scene */ = {
+			isa = PBXGroup;
+			children = (
+				A4A3330E2BD7E4EE00912273 /* HomeView */,
+			);
+			path = Scene;
+			sourceTree = "<group>";
+		};
+		A4A333122BD8009C00912273 /* Components */ = {
+			isa = PBXGroup;
+			children = (
+				A4A333132BD800C000912273 /* AnimeListRow.swift */,
+				A4A3331D2BD9875600912273 /* URLImage.swift */,
+			);
+			path = Components;
+			sourceTree = "<group>";
+		};
+		A4A333152BD80A7E00912273 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				A4A333162BD80A8800912273 /* Color+Extensions.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		A4A3331A2BD944A600912273 /* ViewModels */ = {
+			isa = PBXGroup;
+			children = (
+				A4A3331B2BD944C600912273 /* ShortAnimeViewModel.swift */,
+			);
+			path = ViewModels;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -134,15 +237,21 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = A4A332CC2BD6D7BB00912273 /* Build configuration list for PBXNativeTarget "AniList" */;
 			buildPhases = (
+				A4A333042BD7102100912273 /* Apollo code gen */,
 				A4A332A42BD6D7B900912273 /* Sources */,
 				A4A332A52BD6D7B900912273 /* Frameworks */,
 				A4A332A62BD6D7B900912273 /* Resources */,
+				A4A333082BD7584100912273 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
 			name = AniList;
+			packageProductDependencies = (
+				A4A332F72BD6DF2300912273 /* Apollo */,
+				A4A332FB2BD6DF2300912273 /* ApolloAPI */,
+			);
 			productName = AniList;
 			productReference = A4A332A82BD6D7B900912273 /* AniList.app */;
 			productType = "com.apple.product-type.application";
@@ -215,6 +324,9 @@
 				Base,
 			);
 			mainGroup = A4A3329F2BD6D7B900912273;
+			packageReferences = (
+				A4A332F62BD6DF2300912273 /* XCRemoteSwiftPackageReference "apollo-ios" */,
+			);
 			productRefGroup = A4A332A92BD6D7B900912273 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -232,6 +344,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4A332B32BD6D7BA00912273 /* Preview Assets.xcassets in Resources */,
+				A4A333032BD7100900912273 /* schema.json in Resources */,
 				A4A332B02BD6D7BA00912273 /* Assets.xcassets in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -252,13 +365,43 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		A4A333042BD7102100912273 /* Apollo code gen */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = "Apollo code gen";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Define paths and variables\nBUILD_ROOT=\"${BUILD_ROOT}\"\nSRCROOT=\"${SRCROOT}\"\nTARGET_NAME=\"${TARGET_NAME}\"\nSCHEMA=\"${SRCROOT}/schema.json\"\n\n# Check if the SourcePackages directory exists in the build root\nDERIVED_DATA_CANDIDATE=\"${BUILD_ROOT}\"\nwhile ! [ -d \"${DERIVED_DATA_CANDIDATE}/SourcePackages\" ]; do\n  if [ \"${DERIVED_DATA_CANDIDATE}\" = / ]; then\n    echo >&2 \"error: Unable to locate SourcePackages directory from BUILD_ROOT: '${BUILD_ROOT}'\"\n    exit 1\n  fi\n  DERIVED_DATA_CANDIDATE=\"$(dirname \"${DERIVED_DATA_CANDIDATE}\")\"\ndone\n\n# Check if the Apollo CLI script directory exists\nSCRIPT_PATH=\"${DERIVED_DATA_CANDIDATE}/SourcePackages/checkouts/apollo-ios/scripts\"\nif [ -z \"${SCRIPT_PATH}\" ]; then\n    echo >&2 \"error: Couldn't find the CLI script in your checked out SPM packages; make sure to add the framework to your project.\"\n    exit 1\nfi\n\n# Navigate to the target directory\ncd \"${SRCROOT}/${TARGET_NAME}\"\n\n# Run the code generation script with the specified parameters\n\"${SCRIPT_PATH}/run-bundled-codegen.sh\" codegen:generate \\\n  --target=swift \\\n  --includes=./**/*.graphql \\\n  --localSchemaFile=\"${SCHEMA}\" \\\n  ./GraphQL/API.swift\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		A4A332A42BD6D7B900912273 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A4A332AE2BD6D7B900912273 /* ContentView.swift in Sources */,
+				A4A332AE2BD6D7B900912273 /* HomeView.swift in Sources */,
+				A4A333192BD8325D00912273 /* HomeViewFactory.swift in Sources */,
+				A4A3331C2BD944C600912273 /* ShortAnimeViewModel.swift in Sources */,
+				A4A333142BD800C000912273 /* AnimeListRow.swift in Sources */,
+				A4A3330D2BD7E42E00912273 /* APIService.swift in Sources */,
+				A4A333172BD80A8800912273 /* Color+Extensions.swift in Sources */,
+				A4A333062BD756CE00912273 /* queries.graphql in Sources */,
+				A4A3330A2BD75D3600912273 /* API.swift in Sources */,
+				A4A333112BD7E5AC00912273 /* HomeViewViewModel.swift in Sources */,
 				A4A332AC2BD6D7B900912273 /* AniListApp.swift in Sources */,
+				A4A3331E2BD9875600912273 /* URLImage.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -424,6 +567,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"AniList/Preview Content\"";
 				DEVELOPMENT_TEAM = GBU6J2A3XY;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -453,6 +597,7 @@
 				DEVELOPMENT_ASSET_PATHS = "\"AniList/Preview Content\"";
 				DEVELOPMENT_TEAM = GBU6J2A3XY;
 				ENABLE_PREVIEWS = YES;
+				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -588,6 +733,30 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		A4A332F62BD6DF2300912273 /* XCRemoteSwiftPackageReference "apollo-ios" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apollographql/apollo-ios";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.43.0;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		A4A332F72BD6DF2300912273 /* Apollo */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A4A332F62BD6DF2300912273 /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = Apollo;
+		};
+		A4A332FB2BD6DF2300912273 /* ApolloAPI */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = A4A332F62BD6DF2300912273 /* XCRemoteSwiftPackageReference "apollo-ios" */;
+			productName = ApolloAPI;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = A4A332A02BD6D7B900912273 /* Project object */;
 }
