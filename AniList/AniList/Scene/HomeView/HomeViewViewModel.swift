@@ -20,6 +20,15 @@ final class HomeViewViewModel: ObservableObject {
     
     init(service: APIService) {
         self.service = service
+        $search
+            .debounce(for: .seconds(1), scheduler: DispatchQueue.main)
+            .sink(receiveValue: { [weak self] t in
+                guard !t.isEmpty, let self else { return }
+                Task {
+                    await self.findTerm(term: t)
+                }
+            } )
+            .store(in: &subscriptions)
     }
     
     func fetchAllAnimes() async {
@@ -40,10 +49,26 @@ final class HomeViewViewModel: ObservableObject {
         }
     }
     
-    func findTerm() async {
+    func findTerm(term: String) async {
+        Task { @MainActor in
+            let result = try? await service.searchAnime(search: term)
+            self.searchResult = result ?? []
+        }
+    }
+    
+    func findMoreItemsIfNeed(_ item: ShortAnimeViewModel) {
+        Task {
+            let thresholdIndex = searchResult.index(searchResult.endIndex, offsetBy: -5)
+            if searchResult.firstIndex(where: { $0.id == item.id }) == thresholdIndex {
+                await fetchMoreItems()
+            }
+        }
+    }
+    
+    func fetchMoreItems() async {
         Task { @MainActor in
             let result = try? await service.findAnime(search: search)
-            self.searchResult = result ?? []
+            self.searchResult += result ?? []
         }
     }
 }

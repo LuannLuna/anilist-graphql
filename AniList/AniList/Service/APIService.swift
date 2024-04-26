@@ -42,6 +42,12 @@ final class APIService {
         }
     }
     
+    func searchAnime(search: String) async throws -> [ShortAnimeViewModel] {
+        searchPage = 1
+        hasNextPageSearch = true
+        return try await findAnime(search: search)
+    }
+    
     func findAnime(search: String) async throws -> [ShortAnimeViewModel] {
         guard hasNextPageSearch else { return [] }
         return try await withUnsafeThrowingContinuation { continuation in
@@ -55,7 +61,6 @@ final class APIService {
             }
         }
     }
-
 }
 
 private

@@ -9,6 +9,7 @@ import SwiftUI
 
 struct HomeView: View {
     @ObservedObject var viewModel: HomeViewViewModel
+    @Environment(\.isSearching) var isSearching
     
     var body: some View {
         NavigationView {
@@ -35,20 +36,23 @@ struct HomeView: View {
             }
             .navigationTitle("Anime List")
         }
-//        .searchable(text: $viewModel.search) {
-//            ForEach(viewModel.searchResult, id: \.id) { anime in
-//                HStack(spacing: 5) {
-//                    URLImage(url: anime.url, width: 50, height: 50)
-//                        .clipShape(Circle())
-//                    Text(anime.title)
-//                        .textFieldStyle(RoundedBorderTextFieldStyle())
-//                        .foregroundColor(.primary)
-//                }.searchCompletion(anime)
-//            }
-//        }
-        .onChange(of: viewModel.search) {
-            Task {
-                await viewModel.findTerm()
+        .searchable(text: $viewModel.search, placement: .sidebar) {
+            ForEach(viewModel.searchResult, id: \.id) { anime in
+                HStack(spacing: 5) {
+                    URLImage(url: anime.url, width: 50, height: 50)
+                    Text(anime.title)
+                        .textFieldStyle(RoundedBorderTextFieldStyle())
+                        .foregroundColor(.primary)
+                }
+                .onAppear {
+                    viewModel.findMoreItemsIfNeed(anime)
+                }
+            }
+        }
+        .onChange(of: isSearching) { oldValue, newValue in
+            print("Searching: \(newValue)")
+            if !newValue {
+                viewModel.search = ""
             }
         }
     }
