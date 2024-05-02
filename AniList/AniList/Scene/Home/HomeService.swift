@@ -6,18 +6,8 @@
 //
 
 import Apollo
-import Foundation
 
-enum Constants {
-    static let url = URL(string: "https://graphql.anilist.co")!
-}
-
-enum APIError: Error {
-    case notData
-    case generic(Error)
-}
-
-final class APIService {
+final class HomeService {
     private let apollo: ApolloClientProtocol
     private var page: Int = 1
     private var searchPage: Int = 1
@@ -64,7 +54,7 @@ final class APIService {
 }
 
 private
-extension APIService {
+extension HomeService {
     func fetchAllAnimes(completion: @escaping (Result<[ShortAnimeViewModel], APIError>) -> Void) {
         apollo.fetch(
             query: AllAnnimesQuery(

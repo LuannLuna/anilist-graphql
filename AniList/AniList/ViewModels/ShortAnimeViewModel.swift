@@ -25,11 +25,11 @@ struct ShortAnimeViewModel {
     }
     
     var title: String {
-        anime.title?.english ?? "--"
+        anime.title?.fragments.nameInfo.english ?? "--"
     }
     
     var originalName: String {
-        anime.title?.native ?? ""
+        anime.title?.fragments.nameInfo.native ?? ""
     }
     
     var approvePercentage: String? {
@@ -62,6 +62,10 @@ struct ShortAnimeViewModel {
     
     var type: String? {
         anime.format?.rawValue
+    }
+    
+    var meanScore: Int {
+        anime.meanScore ?? 0
     }
 }
 

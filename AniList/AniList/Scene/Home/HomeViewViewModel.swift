@@ -16,12 +16,12 @@ final class HomeViewViewModel: ObservableObject {
     
     private var subscriptions = Set<AnyCancellable>()
     
-    private let service: APIService
+    private let service: HomeService
     
-    init(service: APIService) {
+    init(service: HomeService) {
         self.service = service
         $search
-            .debounce(for: .seconds(1), scheduler: DispatchQueue.main)
+            .debounce(for: .seconds(1), scheduler: RunLoop.main)
             .sink(receiveValue: { [weak self] t in
                 guard !t.isEmpty, let self else { return }
                 Task {
@@ -52,6 +52,12 @@ final class HomeViewViewModel: ObservableObject {
     func findTerm(term: String) async {
         Task { @MainActor in
             let result = try? await service.searchAnime(search: term)
+            self.searchResult = result ?? []
+        }
+    }
+    func fetchSearch() async {
+        Task { @MainActor in
+            let result = try? await service.searchAnime(search: search)
             self.searchResult = result ?? []
         }
     }

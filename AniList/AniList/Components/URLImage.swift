@@ -9,8 +9,8 @@ import SwiftUI
 
 struct URLImage: View {
     let url: URL?
-    let width: CGFloat
-    let height: CGFloat
+    var width: CGFloat? = nil
+    var height: CGFloat? = nil
 
     var body: some View {
         AsyncImage(url: url) { phase in
@@ -22,7 +22,7 @@ struct URLImage: View {
                     .frame(width: width, height: height)
                     
             case .failure:
-                Image(systemName: "person.fill")
+                Image("no-image-placeholder")
                     .resizable()
                     .scaledToFit()
                     .frame(width: width, height: height)

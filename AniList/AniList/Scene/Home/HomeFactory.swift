@@ -7,11 +7,11 @@
 
 import Foundation
 
-enum HomeViewFactory {
+enum HomeFactory {
     @MainActor static func make() -> HomeView {
         HomeView(
             viewModel: HomeViewViewModel(
-                service: APIService()
+                service: HomeService()
             )
         )
     }

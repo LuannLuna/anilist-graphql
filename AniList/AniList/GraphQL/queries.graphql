@@ -1,3 +1,9 @@
+fragment NameInfo on MediaTitle {
+  english
+  native
+  romaji
+}
+
 fragment Pagination on PageInfo {
   currentPage
   total
@@ -7,8 +13,7 @@ fragment Pagination on PageInfo {
 fragment BaseAnimeInfo on Media {
   id
   title {
-    english
-    native
+    ...NameInfo
   }
   coverImage {
     extraLarge
@@ -22,6 +27,77 @@ fragment BaseAnimeInfo on Media {
   popularity
 }
 
+fragment DetailAnimeInfo on Media {
+  description
+  chapters
+  status
+  startDate {
+    day
+    month
+    year
+  }
+  endDate {
+    day
+    month
+    year
+  }
+  characters {
+    nodes {
+      id
+      name {
+        alternative
+        full
+      }
+      age
+      gender
+      image {
+        large
+      }
+      description
+      media {
+        nodes {
+          staff {
+            nodes {
+              id
+              name {
+                full
+              }
+              image {
+                large
+              }
+              description
+              primaryOccupations
+              age
+              languageV2
+              
+            }
+          }
+        }
+      }
+    }
+  }
+  bannerImage
+  nextAiringEpisode {
+    airingAt
+    episode
+    timeUntilAiring
+    media {
+      bannerImage
+    }
+  }
+  relations {
+    nodes {
+      id
+      title {
+        ...NameInfo
+      }
+      coverImage {
+        extraLarge
+      }
+    }
+  }
+}
+
 query AllAnnimes($page: Int) {
   Page(page: $page) {
     pageInfo {
@@ -33,8 +109,6 @@ query AllAnnimes($page: Int) {
   }
 }
 
-
-
 query FindAnime($search: String, $page: Int) {
   Page(page: $page) {
     pageInfo {
@@ -42,6 +116,15 @@ query FindAnime($search: String, $page: Int) {
     }
     media(search: $search) {
         ...BaseAnimeInfo
+    }
+  }
+}
+
+query FetchDetail($mediaId: Int) {
+  Page {
+    media(id: $mediaId) {
+      ...BaseAnimeInfo
+      ...DetailAnimeInfo
     }
   }
 }

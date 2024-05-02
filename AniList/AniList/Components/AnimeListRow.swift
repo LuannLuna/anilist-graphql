@@ -16,27 +16,7 @@ struct AnimeListRow: View {
     var body: some View {
         HStack(alignment: .top) {
             VStack {
-                AsyncImage(url: media.url) { phase in
-                    switch phase {
-                    case .success(let image):
-                        image
-                            .resizable()
-                            .aspectRatio(contentMode: .fill)
-                            .frame(width: 100, height: 150)
-                            .cornerRadius(8)
-                    case .failure:
-                        Image(systemName: "person.fill")
-                            .resizable()
-                            .scaledToFit()
-                            .frame(width: 100, height: 150)
-                            .foregroundColor(.gray)
-                            .cornerRadius(8)
-                        
-                    case .empty:
-                        ProgressView()
-                            .frame(width: 100, height: 150)
-                    }
-                }
+                URLImage(url: media.url, width: 100, height: 150)
                 Spacer()
             }
             VStack(alignment: .leading, spacing: 10) {
@@ -77,18 +57,7 @@ struct AnimeListRow: View {
                 .font(.footnote)
                 .foregroundColor(.gray)
                 .fontWeight(.semibold)
-                LazyVGrid(columns: columns, spacing: 10, content: {
-                    ForEach(media.genres, id: \.self) { genre in
-                        Text(genre)
-                            .padding(.horizontal, 5)
-                            .padding(.vertical, 3)
-                            .background(Color(hex: media.hexColor))
-                            .clipShape(Capsule())
-                    }
-                })
-                .foregroundColor(.white)
-                .font(.footnote)
-                
+                GenresGrid(genres: media.genres, color: media.hexColor)
             }
         }
         .padding(.vertical, 8)
