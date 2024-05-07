@@ -35,14 +35,19 @@ extension ImageLoader {
     }
     
     func downloadImage(url: URL?, completion: @escaping (UIImage) -> Void) {
+        defer {
+            DispatchQueue.main.async { [weak self] in
+                self?.isLoading = false
+            }
+        }
         guard let url else { return }
         URLSession.shared.dataTask(with: url) { data, _, error in
-            guard let data, error == nil else { return }
-            guard let image = UIImage(data: data) else { return }
+            guard let data, error == nil, let image = UIImage(data: data) else {
+                return
+            }
             DispatchQueue.main.async { [weak self] in
                 completion(image)
                 self?.imageCache.set(forKey: url.absoluteString, image: image)
-                self?.isLoading = false
             }
         }.resume()
     }

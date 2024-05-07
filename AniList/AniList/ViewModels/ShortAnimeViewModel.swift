@@ -26,7 +26,7 @@ struct ShortAnimeViewModel {
     }
     
     var title: String {
-        anime.title?.fragments.nameInfo.english ?? "--"
+        anime.title?.fragments.nameInfo.english ?? anime.title?.fragments.nameInfo.romaji ?? originalName
     }
     
     var originalName: String {

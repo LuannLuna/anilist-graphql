@@ -1,16 +1,22 @@
 //
-//  AttributedText.swift
-//  AniList
+//  HTMLContentView.swift
+//  DSKit
 //
-//  Created by Luann Marques Luna on 26/04/24.
+//  Created by Luann Marques Luna on 07/05/24.
 //
 
 import SwiftUI
 import WebKit
 
+public
 struct HTMLContentView: View {
     let htmlString: String
     
+    public init(htmlString: String) {
+        self.htmlString = htmlString
+    }
+    
+    public
     var body: some View {
         convertHTMLToSwiftUI(htmlString)
     }
