@@ -69,12 +69,12 @@ final class HomeViewViewModel: ObservableObject {
         Task {
             let thresholdIndex = searchResult.index(searchResult.endIndex, offsetBy: -5)
             if searchResult.firstIndex(where: { $0.id == item.id }) == thresholdIndex {
-                await fetchMoreItems()
+                await findMoreItems()
             }
         }
     }
     
-    func fetchMoreItems() async {
+    func findMoreItems() async {
         Task.detached { @MainActor in
             let result = try? await self.service.findAnime(search: self.search)
             self.searchResult += result ?? []

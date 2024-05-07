@@ -8,53 +8,21 @@
 import Apollo
 
 final class DetailViewService {
-    private let apollo: ApolloClientProtocol
+    private let apollo: ApolloClient
     
-    init(apollo: ApolloClientProtocol = ApolloClient(url: Constants.url)) {
+    init(apollo: ApolloClient = ApolloClient(url: Constants.url)) {
         self.apollo = apollo
     }
     
     func fetchAnime(id: Int) async throws -> DetailAnimeViewModel {
-        try await withUnsafeThrowingContinuation { continuation in
-            fetchAnime(id: id) { result in
-                switch result {
-                case let .success(response):
-                    continuation.resume(returning: response)
-                case let .failure(failure):
-                    continuation.resume(throwing: failure)
-                }
-            }
+        let response = try await apollo.fetch(query: FetchDetailQuery(mediaId: id))
+        guard
+            let baseInfo = response.data?.page?.media?.first??.fragments.baseAnimeInfo,
+            let detail = response.data?.page?.media?.first??.fragments.detailAnimeInfo
+        else {
+            throw APIError.notData
         }
-    }
-}
-
-private
-extension DetailViewService {
-    func fetchAnime(id: Int, completion: @escaping (Result<DetailAnimeViewModel, APIError>) -> Void) {
-        let result = apollo.fetch(
-            query: FetchDetailQuery(
-                mediaId: id
-            ),
-            cachePolicy: .returnCacheDataElseFetch,
-            contextIdentifier: nil,
-            queue: .global()
-        ) { [weak self] result in
-            switch result {
-            case let .success(graphqlResponse):
-                print(graphqlResponse)
-                guard
-                    let baseInfo = graphqlResponse.data?.page?.media?.first??.fragments.baseAnimeInfo,
-                    let detail = graphqlResponse.data?.page?.media?.first??.fragments.detailAnimeInfo
-                else {
-                    completion(.failure(.notData))
-                    return
-                }
-                let response = DetailAnimeViewModel(anime: ShortAnimeViewModel(anime: baseInfo), detail: detail)
-                completion(.success(response))
-            case let .failure(error):
-                print(error.localizedDescription)
-                completion(.failure(.generic(error)))
-            }
-        }
+        let detailViewModel = DetailAnimeViewModel(anime: ShortAnimeViewModel(anime: baseInfo), detail: detail)
+        return detailViewModel
     }
 }

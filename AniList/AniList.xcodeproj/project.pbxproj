@@ -9,7 +9,7 @@
 /* Begin PBXBuildFile section */
 		A40DE0832BEA740400B9BB4E /* DSKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = A40DE07F2BEA72A700B9BB4E /* DSKit.framework */; };
 		A40DE0842BEA740400B9BB4E /* DSKit.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = A40DE07F2BEA72A700B9BB4E /* DSKit.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
-		A40DE0942BEA9E6000B9BB4E /* SearchView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40DE0932BEA9E6000B9BB4E /* SearchView.swift */; };
+		A40DE0962BEAB9AB00B9BB4E /* Apollo+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A40DE0952BEAB9AB00B9BB4E /* Apollo+Extensions.swift */; };
 		A415DE702BDC0345005BDE25 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = A415DE6F2BDC0345005BDE25 /* DetailView.swift */; };
 		A415DE722BDC09E8005BDE25 /* DetailAnimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A415DE712BDC09E8005BDE25 /* DetailAnimeViewModel.swift */; };
 		A4439CA82BDC190B003D34AF /* DetailViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4439CA72BDC190B003D34AF /* DetailViewViewModel.swift */; };
@@ -85,7 +85,7 @@
 
 /* Begin PBXFileReference section */
 		A40DE0792BEA72A700B9BB4E /* DSKit.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = DSKit.xcodeproj; path = ../../DSKit/DSKit.xcodeproj; sourceTree = "<group>"; };
-		A40DE0932BEA9E6000B9BB4E /* SearchView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchView.swift; sourceTree = "<group>"; };
+		A40DE0952BEAB9AB00B9BB4E /* Apollo+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Apollo+Extensions.swift"; sourceTree = "<group>"; };
 		A415DE6F2BDC0345005BDE25 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		A415DE712BDC09E8005BDE25 /* DetailAnimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailAnimeViewModel.swift; sourceTree = "<group>"; };
 		A4439CA72BDC190B003D34AF /* DetailViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailViewViewModel.swift; sourceTree = "<group>"; };
@@ -277,7 +277,6 @@
 			children = (
 				A4439CB82BDC4CC0003D34AF /* HorizontalGrid.swift */,
 				A4439CBE2BE02D20003D34AF /* SearchRow.swift */,
-				A40DE0932BEA9E6000B9BB4E /* SearchView.swift */,
 			);
 			path = Components;
 			sourceTree = "<group>";
@@ -285,6 +284,7 @@
 		A4A333152BD80A7E00912273 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				A40DE0952BEAB9AB00B9BB4E /* Apollo+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -484,7 +484,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				A4A332AE2BD6D7B900912273 /* HomeView.swift in Sources */,
-				A40DE0942BEA9E6000B9BB4E /* SearchView.swift in Sources */,
 				A4439CB12BDC1BA9003D34AF /* DetailFactory.swift in Sources */,
 				A415DE702BDC0345005BDE25 /* DetailView.swift in Sources */,
 				A4439CAA2BDC192A003D34AF /* DetailViewService.swift in Sources */,
@@ -499,6 +498,7 @@
 				A4A3330A2BD75D3600912273 /* API.swift in Sources */,
 				A4439CBF2BE02D20003D34AF /* SearchRow.swift in Sources */,
 				A4A333112BD7E5AC00912273 /* HomeViewViewModel.swift in Sources */,
+				A40DE0962BEAB9AB00B9BB4E /* Apollo+Extensions.swift in Sources */,
 				A4A332AC2BD6D7B900912273 /* AniListApp.swift in Sources */,
 				A4439CA82BDC190B003D34AF /* DetailViewViewModel.swift in Sources */,
 				A415DE722BDC09E8005BDE25 /* DetailAnimeViewModel.swift in Sources */,
