@@ -1,12 +1,13 @@
 //
 //  Color+Extensions.swift
-//  AniList
+//  DSKit
 //
-//  Created by Luann Marques Luna on 23/04/24.
+//  Created by Luann Marques Luna on 07/05/24.
 //
 
 import SwiftUI
 
+public
 extension Color {
     init(hex: String) {
         var hexSanitized = hex.trimmingCharacters(in: .whitespacesAndNewlines)
@@ -22,3 +23,4 @@ extension Color {
         self.init(red: red, green: green, blue: blue)
     }
 }
+

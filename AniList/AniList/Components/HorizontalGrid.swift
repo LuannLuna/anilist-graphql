@@ -34,6 +34,7 @@ struct HorizontalGrid: View {
                                 .frame(width: 80)
                                 .padding(5)
                                 .font(.caption2)
+                                .foregroundColor(.black)
                         }
                     }
                 }

@@ -8,47 +8,42 @@
 import UIKit
 
 class ImageLoader: ObservableObject {
-    @Published var downloadedData: UIImage?
+//    @Published var downloadedData: UIImage?
     @Published var isLoading: Bool = false
-    var imageCache = ImageCache.getImageCache()
+    private var imageCache = ImageCache.getImageCache()
     
-    func loadImage(url: URL?) async {
-        guard await !loadImageFromCache(url) else { return }
-        await MainActor.run {
-            isLoading = true
+    func loadImage(url: URL?, completion: @escaping (UIImage) -> Void) {
+        guard !loadedImageFromCache(url, completion: completion) else { return }
+        DispatchQueue.main.async { [weak self] in
+            self?.isLoading = true
         }
-        await downloadImage(url: url)
+        downloadImage(url: url, completion: completion)
     }
-    
 }
 
 private
 extension ImageLoader {
-    func loadImageFromCache(_ url: URL?) async -> Bool {
+    func loadedImageFromCache(_ url: URL?, completion: @escaping (UIImage) -> Void) -> Bool {
         guard
             let absoluteString = url?.absoluteString,
             let cacheImage = imageCache.get(forKey: absoluteString)
         else {
             return false
         }
-        await MainActor.run {
-            downloadedData = cacheImage
-        }
+        completion(cacheImage)
         return true
     }
     
-    func downloadImage(url: URL?) async {
+    func downloadImage(url: URL?, completion: @escaping (UIImage) -> Void) {
         guard let url else { return }
-        do {
-            let (data, _) = try await URLSession.shared.data(from: url)
+        URLSession.shared.dataTask(with: url) { data, _, error in
+            guard let data, error == nil else { return }
             guard let image = UIImage(data: data) else { return }
-            await MainActor.run {
-                downloadedData = image
-                imageCache.set(forKey: url.absoluteString, image: image)
-                isLoading = false
+            DispatchQueue.main.async { [weak self] in
+                completion(image)
+                self?.imageCache.set(forKey: url.absoluteString, image: image)
+                self?.isLoading = false
             }
-        } catch {
-            print(error.localizedDescription)
-        }
+        }.resume()
     }
 }

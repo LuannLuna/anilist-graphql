@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DSKit
 
 struct HomeView: View {
     @ObservedObject var viewModel: HomeViewViewModel
@@ -20,7 +21,7 @@ struct HomeView: View {
                         NavigationLink {
                             DetailFactory.make(id: anime.animeID)
                         } label: {
-                            AnimeListRow(media: anime)
+                            ListItemRow(item: anime.asListItemModel)
                                 .onAppear {
                                     viewModel.loadMoreItemsIfNeed(anime)
                                 }

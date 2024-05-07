@@ -19,7 +19,6 @@
 		A4439CB32BDC2657003D34AF /* AttributedText.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4439CB22BDC2657003D34AF /* AttributedText.swift */; };
 		A4439CB72BDC4218003D34AF /* RelationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4439CB62BDC4218003D34AF /* RelationViewModel.swift */; };
 		A4439CB92BDC4CC0003D34AF /* HorizontalGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4439CB82BDC4CC0003D34AF /* HorizontalGrid.swift */; };
-		A4439CBB2BDDABA3003D34AF /* GenresGrid.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4439CBA2BDDABA3003D34AF /* GenresGrid.swift */; };
 		A4439CBD2BDDCF79003D34AF /* InfoRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4439CBC2BDDCF79003D34AF /* InfoRow.swift */; };
 		A4439CBF2BE02D20003D34AF /* SearchRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4439CBE2BE02D20003D34AF /* SearchRow.swift */; };
 		A4A332AC2BD6D7B900912273 /* AniListApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A332AB2BD6D7B900912273 /* AniListApp.swift */; };
@@ -36,8 +35,6 @@
 		A4A3330A2BD75D3600912273 /* API.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A333092BD75D3600912273 /* API.swift */; };
 		A4A3330D2BD7E42E00912273 /* HomeService.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A3330C2BD7E42E00912273 /* HomeService.swift */; };
 		A4A333112BD7E5AC00912273 /* HomeViewViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A333102BD7E5AC00912273 /* HomeViewViewModel.swift */; };
-		A4A333142BD800C000912273 /* AnimeListRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A333132BD800C000912273 /* AnimeListRow.swift */; };
-		A4A333172BD80A8800912273 /* Color+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A333162BD80A8800912273 /* Color+Extensions.swift */; };
 		A4A333192BD8325D00912273 /* HomeFactory.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A333182BD8325D00912273 /* HomeFactory.swift */; };
 		A4A3331C2BD944C600912273 /* ShortAnimeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A4A3331B2BD944C600912273 /* ShortAnimeViewModel.swift */; };
 /* End PBXBuildFile section */
@@ -99,7 +96,6 @@
 		A4439CB22BDC2657003D34AF /* AttributedText.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AttributedText.swift; sourceTree = "<group>"; };
 		A4439CB62BDC4218003D34AF /* RelationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RelationViewModel.swift; sourceTree = "<group>"; };
 		A4439CB82BDC4CC0003D34AF /* HorizontalGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HorizontalGrid.swift; sourceTree = "<group>"; };
-		A4439CBA2BDDABA3003D34AF /* GenresGrid.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenresGrid.swift; sourceTree = "<group>"; };
 		A4439CBC2BDDCF79003D34AF /* InfoRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoRow.swift; sourceTree = "<group>"; };
 		A4439CBE2BE02D20003D34AF /* SearchRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchRow.swift; sourceTree = "<group>"; };
 		A4A332A82BD6D7B900912273 /* AniList.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = AniList.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -117,8 +113,6 @@
 		A4A333092BD75D3600912273 /* API.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = API.swift; sourceTree = "<group>"; };
 		A4A3330C2BD7E42E00912273 /* HomeService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeService.swift; sourceTree = "<group>"; };
 		A4A333102BD7E5AC00912273 /* HomeViewViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewViewModel.swift; sourceTree = "<group>"; };
-		A4A333132BD800C000912273 /* AnimeListRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AnimeListRow.swift; sourceTree = "<group>"; };
-		A4A333162BD80A8800912273 /* Color+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Color+Extensions.swift"; sourceTree = "<group>"; };
 		A4A333182BD8325D00912273 /* HomeFactory.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeFactory.swift; sourceTree = "<group>"; };
 		A4A3331B2BD944C600912273 /* ShortAnimeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShortAnimeViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -283,10 +277,8 @@
 		A4A333122BD8009C00912273 /* Components */ = {
 			isa = PBXGroup;
 			children = (
-				A4A333132BD800C000912273 /* AnimeListRow.swift */,
 				A4439CB22BDC2657003D34AF /* AttributedText.swift */,
 				A4439CB82BDC4CC0003D34AF /* HorizontalGrid.swift */,
-				A4439CBA2BDDABA3003D34AF /* GenresGrid.swift */,
 				A4439CBC2BDDCF79003D34AF /* InfoRow.swift */,
 				A4439CBE2BE02D20003D34AF /* SearchRow.swift */,
 			);
@@ -296,7 +288,6 @@
 		A4A333152BD80A7E00912273 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				A4A333162BD80A8800912273 /* Color+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -504,16 +495,13 @@
 				A4A333192BD8325D00912273 /* HomeFactory.swift in Sources */,
 				A4A3331C2BD944C600912273 /* ShortAnimeViewModel.swift in Sources */,
 				A4439CB92BDC4CC0003D34AF /* HorizontalGrid.swift in Sources */,
-				A4A333142BD800C000912273 /* AnimeListRow.swift in Sources */,
 				A4A3330D2BD7E42E00912273 /* HomeService.swift in Sources */,
 				A4439CAD2BDC1955003D34AF /* Constants.swift in Sources */,
 				A4439CBD2BDDCF79003D34AF /* InfoRow.swift in Sources */,
-				A4A333172BD80A8800912273 /* Color+Extensions.swift in Sources */,
 				A4A333062BD756CE00912273 /* queries.graphql in Sources */,
 				A4A3330A2BD75D3600912273 /* API.swift in Sources */,
 				A4439CBF2BE02D20003D34AF /* SearchRow.swift in Sources */,
 				A4439CB32BDC2657003D34AF /* AttributedText.swift in Sources */,
-				A4439CBB2BDDABA3003D34AF /* GenresGrid.swift in Sources */,
 				A4A333112BD7E5AC00912273 /* HomeViewViewModel.swift in Sources */,
 				A4A332AC2BD6D7B900912273 /* AniListApp.swift in Sources */,
 				A4439CA82BDC190B003D34AF /* DetailViewViewModel.swift in Sources */,

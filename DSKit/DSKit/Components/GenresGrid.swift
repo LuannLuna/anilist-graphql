@@ -1,19 +1,25 @@
 //
-//  GenrerGrid.swift
-//  AniList
+//  GenresGrid.swift
+//  DSKit
 //
-//  Created by Luann Marques Luna on 27/04/24.
+//  Created by Luann Marques Luna on 07/05/24.
 //
 
 import SwiftUI
 
+public
 struct GenresGrid: View {
     
     let columns = [GridItem(.adaptive(minimum: 80))]
     let genres: [String]
     let color: String
     
-    var body: some View {
+    public init(genres: [String], color: String) {
+        self.genres = genres
+        self.color = color
+    }
+    
+    public var body: some View {
         LazyVGrid(columns: columns, spacing: 5) {
             ForEach(genres, id: \.self) { genre in
                 Text(genre)

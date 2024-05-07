@@ -11,7 +11,7 @@ public
 struct CacheImage: View {
     let url: URL?
     let placeholder: String
-    
+    @State var image: UIImage?
     @ObservedObject var imageLoader = ImageLoader()
     
     public init(url: URL?, placeholder: String = "no-image-placeholder") {
@@ -21,7 +21,7 @@ struct CacheImage: View {
     
     public var body: some View {
         ZStack {
-            if let image = imageLoader.downloadedData {
+            if let image {
                 Image(uiImage: image)
                     .resizable()
                     .clipped()
@@ -36,8 +36,12 @@ struct CacheImage: View {
                     .background(Color.white)
             }
         }
-        .task {
-            await imageLoader.loadImage(url: url)
+        .task(priority: .high) {
+            imageLoader.loadImage(url: url) { image in
+                DispatchQueue.main.async {
+                    self.image = image
+                }
+            }
         }
     }
 }

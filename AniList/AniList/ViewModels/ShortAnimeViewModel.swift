@@ -6,6 +6,7 @@
 //
 
 import Foundation
+import DSKit
 
 struct ShortAnimeViewModel {
     
@@ -66,6 +67,22 @@ struct ShortAnimeViewModel {
     
     var meanScore: Int {
         anime.meanScore ?? 0
+    }
+}
+
+extension ShortAnimeViewModel {
+    var asListItemModel: ListItemModel {
+        ListItemModel(
+            url: url,
+            title: title,
+            subtitle: originalName,
+            approvePercentage: approvePercentage,
+            users: numberUsers,
+            type: type ?? "",
+            episodes: numberEpisodes,
+            genres: genres,
+            hexColor: hexColor
+        )
     }
 }
 
