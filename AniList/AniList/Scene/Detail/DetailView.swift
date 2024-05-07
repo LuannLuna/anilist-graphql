@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DSKit
 
 struct DetailView: View {
     @ObservedObject var viewModel: DetailViewViewModel
@@ -19,7 +20,8 @@ struct DetailView: View {
             ScrollView(.vertical) {
                 if let anime = viewModel.anime {
                     VStack(alignment: .leading) {
-                        URLImage(url: anime.banner)
+                        CacheImage(url: anime.banner)
+                            .frame(height: 150)
                         VStack(spacing: 15) {
                             Text(anime.title)
                                 .font(.headline)

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DSKit
 
 struct SearchRow: View {
     var id: Int
@@ -14,7 +15,8 @@ struct SearchRow: View {
     
     var body: some View {
         HStack(spacing: 5) {
-            URLImage(url: url, width: 50, height: 50)
+            CacheImage(url: url)
+                .frame(width: 50, height: 50)
             Text(title)
                 .textFieldStyle(RoundedBorderTextFieldStyle())
                 .foregroundColor(.primary)

@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DSKit
 
 struct HorizontalGrid: View {
     struct HGridItem {
@@ -25,7 +26,8 @@ struct HorizontalGrid: View {
                         DetailFactory.make(id: item.id)
                     } label: {
                         VStack(alignment: .center) {
-                            URLImage(url: item.url, width: 80, height: 100)
+                            CacheImage(url: item.url)
+                                .frame(width: 80, height: 100)
                                 .scaledToFill()
                                 .frame(height: 100)
                             Text(item.title)

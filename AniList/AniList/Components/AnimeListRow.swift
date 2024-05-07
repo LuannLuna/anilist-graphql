@@ -6,6 +6,7 @@
 //
 
 import SwiftUI
+import DSKit
 
 struct AnimeListRow: View {
     
@@ -16,7 +17,8 @@ struct AnimeListRow: View {
     var body: some View {
         HStack(alignment: .top) {
             VStack {
-                URLImage(url: media.url, width: 100, height: 150)
+                CacheImage(url: media.url)
+                    .frame(width: 100, height: 150)
                 Spacer()
             }
             VStack(alignment: .leading, spacing: 10) {
