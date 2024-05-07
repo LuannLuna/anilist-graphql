@@ -23,7 +23,10 @@ final class HomeViewViewModel: ObservableObject {
         $search
             .debounce(for: .seconds(1), scheduler: RunLoop.main)
             .sink(receiveValue: { [weak self] t in
-                guard !t.isEmpty, let self else { return }
+                guard !t.isEmpty, let self else {
+                    self?.cleanSearch()
+                    return
+                }
                 Task {
                     await self.findTerm(term: t)
                 }
@@ -72,9 +75,19 @@ final class HomeViewViewModel: ObservableObject {
     }
     
     func fetchMoreItems() async {
-        Task { @MainActor in
-            let result = try? await service.findAnime(search: search)
+        Task.detached { @MainActor in
+            let result = try? await self.service.findAnime(search: self.search)
             self.searchResult += result ?? []
+        }
+    }
+    
+}
+
+private
+extension HomeViewViewModel {
+    func cleanSearch() {
+        Task { @MainActor in
+            self.searchResult = []
         }
     }
 }

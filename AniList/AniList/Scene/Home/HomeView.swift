@@ -10,8 +10,6 @@ import DSKit
 
 struct HomeView: View {
     @ObservedObject var viewModel: HomeViewViewModel
-    @State var pushActive = false
-    @State var selectedID: Int = 0
     
     var body: some View {
         NavigationView {
@@ -34,11 +32,6 @@ struct HomeView: View {
                     ProgressView()
                         .frame(maxWidth: .infinity, maxHeight: .infinity)
                 }
-                NavigationLink(destination:
-                                DetailFactory.make(id: selectedID),
-                   isActive: self.$pushActive) {
-                     EmptyView()
-                }.hidden()
             }
             .task(priority: .background, {
                 await viewModel.fetchAllAnimes()
@@ -46,13 +39,9 @@ struct HomeView: View {
             .navigationTitle("Anime List")
         }
         .searchable(text: $viewModel.search) {
-            ForEach(viewModel.searchResult, id: \.id) { anime in
-                SearchRow(id: anime.animeID, title: anime.title)
-                    .onTapGesture {
-                        selectedID = anime.animeID
-                        pushActive = true
-                    }
-            }
+            SearchView(results: viewModel.searchResult.map {
+                SearchResultModel(id: $0.animeID, image: $0.url, title: $0.title)
+            })
         }
     }
 }

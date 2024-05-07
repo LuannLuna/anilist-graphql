@@ -35,7 +35,7 @@ extension DetailViewService {
             query: FetchDetailQuery(
                 mediaId: id
             ),
-            cachePolicy: .returnCacheDataAndFetch,
+            cachePolicy: .returnCacheDataElseFetch,
             contextIdentifier: nil,
             queue: .global()
         ) { [weak self] result in

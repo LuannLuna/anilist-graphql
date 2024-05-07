@@ -6,6 +6,7 @@
 //
 
 import Apollo
+import Foundation
 
 final class HomeService {
     private let apollo: ApolloClientProtocol
@@ -40,12 +41,12 @@ final class HomeService {
     
     func findAnime(search: String) async throws -> [ShortAnimeViewModel] {
         guard hasNextPageSearch else { return [] }
-        return try await withUnsafeThrowingContinuation { continuation in
+        return try await withCheckedThrowingContinuation { continuation in
             findAnimes(search: search) { result in
                 switch result {
-                case let .success(response):
-                    continuation.resume(returning: response)
-                case let .failure(failure):
+                case .success(let success):
+                    continuation.resume(returning: success)
+                case .failure(let failure):
                     continuation.resume(throwing: failure)
                 }
             }
@@ -60,8 +61,8 @@ extension HomeService {
             query: AllAnnimesQuery(
                 page: page
             ),
-            cachePolicy: .returnCacheDataAndFetch,
-            contextIdentifier: nil,
+            cachePolicy: .returnCacheDataElseFetch,
+            contextIdentifier: UUID(),
             queue: .global()
         ) { [weak self] result in
             switch result {
@@ -86,8 +87,8 @@ extension HomeService {
                 search: search,
                 page: searchPage
             ),
-            cachePolicy: .returnCacheDataAndFetch,
-            contextIdentifier: nil,
+            cachePolicy: .returnCacheDataElseFetch,
+            contextIdentifier: UUID(),
             queue: .global()
         ) { [weak self] result in
             switch result {
